@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-fluid bg-dark">
+    <h1 class="text-center  bg-black text-warning">basic calculator </h1>
+</div>
+  <div class="container bg-dark pb-5 mt-3">
+      
+    <form class="text-warning">
+        <div class="form-group">
+          <label for="formGroupExampleInput">FRIST NUMBER</label>
+          <input type="text" class="form-control" id="n1" placeholder="Enter input">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">SECOND NUMBER</label>
+          <input type="text" class="form-control"  id="n2" placeholder="Enter input">
+        </div>
+        <label class="mr-sm-2 text-warning" for="inlineFormCustomSelect">operators</label>
+        <select class="custom-select mr-sm-2"  id="operator">
+          <option selected>CHOOSE.</option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="/">/</option>
+          <option value="*">*</option>
+        </select>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">RESULT</label>
+            <input type="text" class="form-control"   id="result" placeholder="output">
+          </div>
+      </form>
+
+      
+     
+      <button type="submit" class="btn btn-warning mt-3"  onclick="calc()">CALCULATE</button>
+  </div>
+
+<!--js file-->
+<script>
+ function calc()
+ {
+     var n1 = parseInt(document.getElementById("n1").value);
+     var n2 = parseInt(document.getElementById("n2").value);
+     var  oper = document.getElementById("operator").value;
+
+     if(oper === '+')
+     {
+         document.getElementById("result").value = n1+n2;
+     }
+     if(oper === '-')
+     {
+         document.getElementById("result").value = n1-n2;
+     }
+     if(oper === '/')
+     {
+         document.getElementById("result").value = n1/n2;
+     }
+     if(oper === '*')
+     {
+         document.getElementById("result").value = n1*n2;
+     }
+
+ }
+
+  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EB BILL</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid bg-dark">
+    <h1 class="text-center  bg-black text-warning">EB BILL</h1>
+</div>
+  <script>
+    
+    function calc() {
+      const units = parseInt(document.getElementById("unit").value);
+      const load = parseInt(document.getElementById("load").value);
+      var Tariff = document.getElementById("Tariff").value;
+      var amount;
+      
+      if (Tariff == "Domestic") {
+        if (units >= 0 && units <= 100) {
+          document.getElementById("result").value = units * 0;
+          document.getElementById("fc").value = 0;
+        } else if (units >= 0 && units <= 200) {
+          document.getElementById("result").value = (100 * 0) + ((units - 100) * 1.5) + 20;
+          document.getElementById("fc").value = 20;
+        } else if (units >= 0 && units <= 500) {
+          document.getElementById("result").value = (100 * 0) + (100 * 2) + ((units - 200) * 3) + 30;
+          document.getElementById("fc").value = 30;
+        } else if (units > 500) {
+          document.getElementById("result").value = (100 * 0) + (100 * 3.5) + (300 * 4.6) + ((units - 500) * 6.6) + 50;
+          document.getElementById("fc").value = 50;
+        } else {
+          document.getElementById("result").value = "Wrong unit";
+        }
+      } else {
+        if (units <= 100) {
+        amount = units * 5;
+        } else {
+        amount = units * 8.05;
+        }
+        document.getElementById("fc").value = load * 70;
+        document.getElementById("result").value = (amount + (load * 70));
+      }
+      return 0;
+    }
+
+  </script>
+
+
+  <div class="container">
+    <div class="form-group">
+
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Select the Tariff</label>
+    <select class="custom-select mr-sm-2" id="Tariff">
+      <option selected CLASS="text-center">------CHOOSE THE Tariff-------</option>
+      <option value="Domestic">Domestic</option>
+      <option value="Commercial">Commercial</option>
+    </select><br><br>
+
+    
+      <div class="form-group">
+        <label for="sem1" class="form-label w-auto">Consumed Units</label>
+        <input type="number" class="form-control " id="unit" placeholder="Total Units">
+      </div>
+    
+
+    
+      <div class="form-group">
+        <label for="sem1" class="form-label w-auto">Consumed load</label>
+        <input type="number" class="form-control " id="load" placeholder="Total Units">
+      </div>
+    
+
+
+    <div class="form-group">
+      <label for="sem1" class="form-label w-auto">Fixed Cost</label>
+      <input type="text" class="form-control " id="fc" placeholder="Fixed cost in Rs.">
+    </div>
+    
+
+    <div class="form-group">
+     <label for="sem1" class="form-label ">Bill Amount</label>
+        <input type="text" class="form-control " id="result" placeholder="Amount in Rs.">
+      </div>
+    
+
+    <button onclick="calc();" type="submit" class="btn btn-primary text-center">Calculate</button>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+  <footer class="fixed-bottom">
+
+    <div class="container-fluid "><div class="row "><div class="col-md-12 border-top text-center p-3 m-3">Designed and Maintained by Haren prabu(19ITL110)</div>
+      
+    </div></div>
+  </footer>
+</body>
+
+</html>
